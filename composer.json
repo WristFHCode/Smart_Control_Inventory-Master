@@ -10,13 +10,14 @@
     "require": {
         "php": "^8.2",
         "barryvdh/laravel-dompdf": "^3.0",
+        "bezhansalleh/filament-shield": "^3.3",
         "dompdf/dompdf": "^3.0",
         "filament/filament": "^3.2",
         "filament/notifications": "^3.2",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
-        "nesbot/carbon": "^3.8",
-        "mike42/escpos-php": "^4.0"
+        "mike42/escpos-php": "^4.0",
+        "nesbot/carbon": "^3.8"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
