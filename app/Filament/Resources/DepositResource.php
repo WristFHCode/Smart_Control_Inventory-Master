@@ -21,7 +21,7 @@ class DepositResource extends Resource
 {
     protected static ?string $model = Deposit::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-s-document-currency-dollar';
 
     protected static ?string $navigationGroup = 'Keuangan';
 

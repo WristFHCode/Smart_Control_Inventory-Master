@@ -2,15 +2,16 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\UserResource\Pages;
-use App\Models\User;
 use Filament\Forms;
+use App\Models\User;
 use Filament\Tables;
 use Filament\Resources\Resource;
+use Spatie\Permission\Models\Role;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Fieldset;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Select;
-use Spatie\Permission\Models\Role;
+use App\Filament\Resources\UserResource\Pages;
 
 class UserResource extends Resource
 {
@@ -29,29 +30,31 @@ class UserResource extends Resource
     public static function form(Forms\Form $form): Forms\Form
     {
         return $form
-            ->schema([
-                // Form fields for creating or updating a user
-                TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-
-                TextInput::make('email')
-                    ->required()
-                    ->email()
-                    ->maxLength(255),
-
-                TextInput::make('password')
-                    ->required(fn ($record) => !$record) // Password required only when creating a new user
-                    ->password() // Makes it show as a password field
-                    ->minLength(8) // Minimum length of 8 characters
-                    ->label('Password'),
-
-                Select::make('roles')
-                    ->multiple()
-                    ->options(Role::all()->pluck('name', 'id'))
-                    ->relationship('roles', 'name')
-                    ->required(),
-            ]);
+        ->schema([
+            Fieldset::make('User Details') // Membuat grup untuk form
+                ->schema([
+                    TextInput::make('name')
+                        ->required()
+                        ->maxLength(255),
+        
+                    TextInput::make('email')
+                        ->required()
+                        ->email()
+                        ->maxLength(255),
+        
+                    TextInput::make('password')
+                        ->required(fn ($record) => !$record) // Password hanya wajib saat membuat user baru
+                        ->password() // Menjadikan field password
+                        ->minLength(8)
+                        ->label('Password'),
+        
+                    Select::make('roles')
+                        ->relationship('roles', 'name') // Menarik data dari relationship
+                        ->required(),
+                ])
+                ->columns(1), // Atur fieldset menjadi 1 kolom
+        ]);
+        
     }
 
     public static function table(Tables\Table $table): Tables\Table
