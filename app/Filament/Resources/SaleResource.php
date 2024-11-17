@@ -22,9 +22,9 @@ class SaleResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-s-document-currency-dollar';
 
-    protected static ?string $navigationGroup = 'Keuangan';
+    protected static ?string $navigationGroup = 'TIKI Finance';
 
-    protected static ?string $navigationLabel = 'Selling Report TIKI';
+    protected static ?string $navigationLabel = 'TIKI Agent Payment';
 
     protected static ?int $navigationSort = 1;
 

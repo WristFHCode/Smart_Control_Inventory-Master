@@ -22,12 +22,11 @@ class ProfitResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-s-document-currency-dollar';
 
-    protected static ?string $navigationLabel = 'Keungan TIKI';
+    protected static ?string $navigationLabel = 'TIKI Profits';
 
+    protected static ?string $navigationGroup = 'TIKI Finance';
 
-    protected static ?string $navigationGroup = 'Keuangan';
-
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 3;
 
     public static function form(Form $form): Form
     {

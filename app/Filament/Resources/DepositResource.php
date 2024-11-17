@@ -23,9 +23,11 @@ class DepositResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-s-document-currency-dollar';
 
-    protected static ?string $navigationGroup = 'Keuangan';
+    protected static ?string $navigationLabel = 'TIKI Agent Deposit';
 
-    protected static ?int $navigationSort = 3;
+    protected static ?string $navigationGroup = 'TIKI Finance';
+
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {
